@@ -22,8 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (gameState[tappedCounter] == 2) {
             numberOfAttempts++;
-        }else if(gameState[tappedCounter] != 2 && numberOfAttempts == 9) {
-            numberOfAttempts++;
+        }else if(gameState[tappedCounter] != 2 && numberOfAttempts == 9 && gameActive) {
+            Button playAgainButton = (Button) findViewById(R.id.playAgainButton);
+            TextView winnerTextView = (TextView) findViewById(R.id.winnerTextView);
+            winnerTextView.setText("The game has no winner!");
+            playAgainButton.setVisibility(View.VISIBLE);
+            winnerTextView.setVisibility(View.VISIBLE);
         }
 
             if (gameState[tappedCounter] == 2 && gameActive) {
@@ -53,13 +57,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-        if(numberOfAttempts == 10) {
-            Button playAgainButton = (Button) findViewById(R.id.playAgainButton);
-            TextView winnerTextView = (TextView) findViewById(R.id.winnerTextView);
-            winnerTextView.setText("The game has no winner!");
-            playAgainButton.setVisibility(View.VISIBLE);
-            winnerTextView.setVisibility(View.VISIBLE);
-        }
     }
 
     public void playAgain(View view) {
