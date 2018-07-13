@@ -1,5 +1,6 @@
 package com.example.connect3game;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayout;
@@ -9,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    MediaPlayer mp;
+
     //0:Bowser 1:Mario 2:Empty
     int activePlayer = 0;
     int[] gameState = {2, 2, 2, 2, 2, 2, 2, 2, 2}; //start all 9 slots with empty representation
@@ -81,4 +84,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        mp = MediaPlayer.create(getApplicationContext(), R.raw.seu_tempo_ta_acabando);
+        mp.setLooping(true);
+        mp.start();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        mp.stop();
+    }
+
 }
