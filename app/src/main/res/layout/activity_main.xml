@@ -31,7 +31,9 @@
             android:layout_width="86dp"
             android:layout_height="91dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="8dp"
+            android:contentDescription="@string/first_square"
             android:onClick="newPlay"
             android:tag="0" />
 
@@ -39,7 +41,9 @@
             android:layout_width="86dp"
             android:layout_height="91dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="8dp"
+            android:contentDescription="@string/second_square"
             android:onClick="newPlay"
             android:tag="1" />
 
@@ -47,7 +51,9 @@
             android:layout_width="86dp"
             android:layout_height="91dp"
             android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
+            android:contentDescription="@string/third_square"
             android:onClick="newPlay"
             android:tag="2" />
 
@@ -55,7 +61,9 @@
             android:layout_width="86dp"
             android:layout_height="91dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="24dp"
+            android:contentDescription="@string/fourth_square"
             android:onClick="newPlay"
             android:tag="3" />
 
@@ -63,7 +71,9 @@
             android:layout_width="86dp"
             android:layout_height="91dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="24dp"
+            android:contentDescription="@string/fifth_square"
             android:onClick="newPlay"
             android:tag="4" />
 
@@ -71,7 +81,9 @@
             android:layout_width="86dp"
             android:layout_height="91dp"
             android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
+            android:contentDescription="@string/sixth_square"
             android:onClick="newPlay"
             android:tag="5" />
 
@@ -79,7 +91,9 @@
             android:layout_width="86dp"
             android:layout_height="91dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
+            android:contentDescription="@string/seventh_square"
             android:onClick="newPlay"
             android:tag="6" />
 
@@ -87,7 +101,9 @@
             android:layout_width="86dp"
             android:layout_height="91dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
+            android:contentDescription="@string/eighth_square"
             android:onClick="newPlay"
             android:tag="7" />
 
@@ -95,7 +111,9 @@
             android:layout_width="86dp"
             android:layout_height="91dp"
             android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="20dp"
+            android:contentDescription="@string/ninth_square"
             android:onClick="newPlay"
             android:tag="8" />
 
@@ -111,7 +129,7 @@
         android:layout_marginRight="138dp"
         android:layout_marginStart="138dp"
         android:layout_marginTop="12dp"
-        android:text="Winner Text View"
+        android:text="@string/winner_text_view"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         android:visibility="invisible"
@@ -131,7 +149,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:onClick="playAgain"
-        android:text="Play Again"
+        android:text="@string/play_again"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -150,6 +168,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/volume_on_off_button"
         android:onClick="volumeControl"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"

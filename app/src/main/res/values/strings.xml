@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Mario Tic Tac Toe</string>
+    <string name="winner_text_view">Winner Text View</string>
+    <string name="play_again">Play Again</string>
+    <string name="first_square">First Square</string>
+    <string name="second_square">Second Square</string>
+    <string name="third_square">Third Square</string>
+    <string name="fourth_square">Fourth Square</string>
+    <string name="fifth_square">Fifth Square</string>
+    <string name="sixth_square">Sixth Square</string>
+    <string name="seventh_square">Seventh Square</string>
+    <string name="eighth_square">Eighth Square</string>
+    <string name="ninth_square">Ninth Square</string>
+    <string name="volume_on_off_button">Volume On Off Button</string>
 </resources>
