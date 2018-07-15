@@ -1,5 +1,6 @@
 package com.example.connect3game;
 
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -77,6 +78,18 @@ public class MainActivity extends AppCompatActivity {
         gameState = new int[]{2, 2, 2, 2, 2, 2, 2, 2, 2};
         gameActive = true;
         numberOfAttempts = 0;
+    }
+
+    public void volumeControl(View view) {
+        if(mp.isPlaying()) {
+            mp.pause();
+            ImageView volumeImageView = (ImageView) findViewById(R.id.volumeImageView);
+            volumeImageView.setImageResource(R.drawable.outline_volume_off_black_36dp);
+        }else {
+            mp.start();
+            ImageView volumeImageView = (ImageView) findViewById(R.id.volumeImageView);
+            volumeImageView.setImageResource(R.drawable.outline_volume_up_black_36dp);
+        }
     }
 
     @Override
