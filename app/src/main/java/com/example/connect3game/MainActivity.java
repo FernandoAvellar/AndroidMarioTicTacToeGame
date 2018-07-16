@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         mpBackground.setLooping(true);
         mpBackground.start();
 
-        mpMarioWins = MediaPlayer.create(getApplicationContext(), R.raw.mario_wins);
+        mpMarioWins = MediaPlayer.create(getApplicationContext(), R.raw.here_we_go);
         mpMarioWins.setLooping(false);
 
         mpMarioDefeated = MediaPlayer.create(getApplicationContext(), R.raw.mario_defeated);
