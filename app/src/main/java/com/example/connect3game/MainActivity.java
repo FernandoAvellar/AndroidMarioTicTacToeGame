@@ -1,6 +1,5 @@
 package com.example.connect3game;
 
-import android.media.Image;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    MediaPlayer mp;
+    MediaPlayer mpBackground, mpMarioWins, mpMarioDefeated;
+    boolean muteActive = false;
 
     //0:Bowser 1:Mario 2:Empty
     int activePlayer = 0;
@@ -55,6 +55,17 @@ public class MainActivity extends AppCompatActivity {
                     Button playAgainButton = (Button) findViewById(R.id.playAgainButton);
                     TextView winnerTextView = (TextView) findViewById(R.id.winnerTextView);
                     winnerTextView.setText(winner + " has won!");
+
+                    if(winner.equals("Mario") && !muteActive) {
+                        mpBackground.pause();
+                        mpMarioWins.start();
+                    }
+
+                    if(winner.equals("Bowser") && !muteActive) {
+                        mpBackground.pause();
+                        mpMarioDefeated.start();
+                    }
+
                     playAgainButton.setVisibility(View.VISIBLE);
                     winnerTextView.setVisibility(View.VISIBLE);
                 }
@@ -78,17 +89,22 @@ public class MainActivity extends AppCompatActivity {
         gameState = new int[]{2, 2, 2, 2, 2, 2, 2, 2, 2};
         gameActive = true;
         numberOfAttempts = 0;
+        if(!mpBackground.isPlaying() && !muteActive) {
+            mpBackground.start();
+        }
     }
 
     public void volumeControl(View view) {
-        if(mp.isPlaying()) {
-            mp.pause();
+        if(mpBackground.isPlaying()) {
+            mpBackground.pause();
             ImageView volumeImageView = (ImageView) findViewById(R.id.volumeImageView);
             volumeImageView.setImageResource(R.drawable.outline_volume_off_black_36dp);
+            muteActive = true;
         }else {
-            mp.start();
+            mpBackground.start();
             ImageView volumeImageView = (ImageView) findViewById(R.id.volumeImageView);
             volumeImageView.setImageResource(R.drawable.outline_volume_up_black_36dp);
+            muteActive = false;
         }
     }
 
@@ -101,15 +117,33 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart(){
         super.onStart();
-        mp = MediaPlayer.create(getApplicationContext(), R.raw.seu_tempo_ta_acabando);
-        mp.setLooping(true);
-        mp.start();
+        mpBackground = MediaPlayer.create(getApplicationContext(), R.raw.seu_tempo_ta_acabando);
+        mpBackground.setLooping(true);
+        mpBackground.start();
+
+        mpMarioWins = MediaPlayer.create(getApplicationContext(), R.raw.mario_wins);
+        mpMarioWins.setLooping(false);
+
+        mpMarioDefeated = MediaPlayer.create(getApplicationContext(), R.raw.mario_defeated);
+        mpMarioDefeated.setLooping(false);
     }
 
     @Override
     public void onPause(){
         super.onPause();
-        mp.stop();
+        mpBackground.stop();
+        mpMarioWins.stop();
+        mpMarioDefeated.stop();
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mpBackground.release();
+        mpBackground = null;
+        mpMarioWins.release();
+        mpMarioWins = null;
+        mpMarioDefeated.release();
+        mpMarioDefeated = null;
+    }
 }
